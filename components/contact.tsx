@@ -6,24 +6,28 @@ const contactInfo = [
     label: "Endereço",
     value: "Rua Benedita de Paula Souza, 53",
     detail: "Jardim Sant'Anna do Pedregulho - Jacareí/SP",
+    href: null,
   },
   {
     icon: Phone,
     label: "Telefone",
     value: "(12) 99253-6251",
     detail: "WhatsApp disponível",
+    href: "https://wa.me/5512992536251?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Academia%20Projeto%20Fit.",
   },
   {
     icon: Clock,
     label: "Horário",
     value: "Seg a Sex: 5:30 às 12h e 15h às 22h",
     detail: "Sáb: 8h às 12h",
+    href: null,
   },
   {
     icon: Instagram,
     label: "Instagram",
     value: "@_projetoacademia",
     detail: "Siga-nos nas redes",
+    href: "https://www.instagram.com/_projetoacademia",
   },
 ]
 
@@ -47,11 +51,8 @@ export function Contact() {
           <div className="grid sm:grid-cols-2 gap-6">
             {contactInfo.map((info) => {
               const Icon = info.icon
-              const isInstagram = info.label === "Instagram"
-              const content = (
-                <div
-                  className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:-translate-y-0.5"
-                >
+              const CardContent = (
+                <>
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 shrink-0">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
@@ -66,20 +67,30 @@ export function Contact() {
                       {info.detail}
                     </p>
                   </div>
-                </div>
+                </>
               )
-              return isInstagram ? (
-                <a
+              
+              if (info.href) {
+                return (
+                  <a
+                    key={info.label}
+                    href={info.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    {CardContent}
+                  </a>
+                )
+              }
+              
+              return (
+                <div
                   key={info.label}
-                  href="https://www.instagram.com/_projetoacademia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block cursor-pointer"
+                  className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:-translate-y-0.5"
                 >
-                  {content}
-                </a>
-              ) : (
-                <div key={info.label}>{content}</div>
+                  {CardContent}
+                </div>
               )
             })}
           </div>
