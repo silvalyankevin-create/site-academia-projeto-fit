@@ -71,9 +71,10 @@ export function Contact() {
               return isInstagram ? (
                 <a
                   key={info.label}
-                  href="https://instagram.com/_projetoacademia"
+                  href="https://www.instagram.com/_projetoacademia"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block cursor-pointer"
                 >
                   {content}
                 </a>

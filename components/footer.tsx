@@ -74,7 +74,7 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Instagram className="w-4 h-4 text-primary shrink-0" />
                 <a
-                  href="https://instagram.com/_projetoacademia"
+                  href="https://www.instagram.com/_projetoacademia"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#ffffff] transition-colors"
