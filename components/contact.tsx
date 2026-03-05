@@ -47,9 +47,9 @@ export function Contact() {
           <div className="grid sm:grid-cols-2 gap-6">
             {contactInfo.map((info) => {
               const Icon = info.icon
-              return (
+              const isInstagram = info.label === "Instagram"
+              const content = (
                 <div
-                  key={info.label}
                   className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:-translate-y-0.5"
                 >
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 shrink-0">
@@ -67,6 +67,18 @@ export function Contact() {
                     </p>
                   </div>
                 </div>
+              )
+              return isInstagram ? (
+                <a
+                  key={info.label}
+                  href="https://instagram.com/_projetoacademia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={info.label}>{content}</div>
               )
             })}
           </div>
