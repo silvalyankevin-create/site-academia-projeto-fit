@@ -1,7 +1,7 @@
 import { Check, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const WHATSAPP_URL = "https://wa.me/5512992536251?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20da%20Academia%20Projeto%20Fit."
+const WHATSAPP_NUMBER = "5512992536251"
 
 const plans = [
   {
@@ -15,6 +15,7 @@ const plans = [
       "Sem compromisso",
     ],
     featured: false,
+    whatsappMessage: "Oi, gostaria de saber mais sobre a diária da academia!",
   },
   {
     name: "Mensal",
@@ -28,6 +29,7 @@ const plans = [
       "Acesso de segunda a sábado",
     ],
     featured: false,
+    whatsappMessage: "Oi, gostaria de fazer a matrícula no plano Mensal!",
   },
   {
     name: "Trimestral",
@@ -41,6 +43,7 @@ const plans = [
       "Acesso de segunda a sexta",
     ],
     featured: false,
+    whatsappMessage: "Oi, gostaria de fazer a matrícula no plano Trimestral!",
   },
   {
     name: "Anual",
@@ -55,6 +58,7 @@ const plans = [
       "Brinde exclusivo de matrícula",
     ],
     featured: true,
+    whatsappMessage: "Oi, gostaria de fazer a matrícula no plano Anual!",
   },
 ]
 
@@ -122,7 +126,7 @@ export function Plans() {
                     : "bg-foreground hover:bg-foreground/90 text-background"
                 }`}
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(plan.whatsappMessage)}`} target="_blank" rel="noopener noreferrer">
                   Quero me matricular
                 </a>
               </Button>
